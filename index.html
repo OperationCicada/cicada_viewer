@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OPERATION CICADA - Internal Archive</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<div class="window">
+  <div class="titlebar">
+    <span class="title">OPERATION CICADA Viewer</span>
+    <div class="window-controls">
+      <button class="btn-close" onclick="closeWindow()">&times;</button>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="dropdown">
+      <button class="btn active" onclick="toggleDropdown('fileDropdown')">File</button>
+      <div id="fileDropdown" class="dropdown-content"></div>
+    </div>
+    <button class="btn" onclick="menuClick('Task')">Task</button>
+    <button class="btn" onclick="menuClick('Resource')">Resource</button>
+    <button class="btn" onclick="menuClick('Help')">Help</button>
+    <button class="btn" onclick="showLogin('upload')">Upload File</button>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>OPERATION CICADA</h1>
+      <h2>Internal Archive Retrieval Node (IARN-04B)</h2>
+      <p class="classification">TOP SECRET // SCI // NOFORN</p>
+      <p class="disclaimer">Access restricted to personnel with Level 5+ clearance</p>
+      <hr>
+    </header>
+
+    <main>
+      <section>
+        <h3>Available Files:</h3>
+        <ul id="fileList" class="file-list">
+          <!-- JS will populate this -->
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <hr>
+      <p class="footer-text">This node is part of the NICE/HSI archival synchronization protocol. All access is logged. Reference ID: CICADA-DEL-NODE_09</p>
+    </footer>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="hideLogin()">&times;</span>
+    <h3>RESTRICTED ACTION</h3>
+    <form onsubmit="return verifyLogin(event)">
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" required><br><br>
+      <button type="submit">Unlock</button>
+    </form>
+    <p id="loginError" style="color:red; display:none;">Invalid credentials.</p>
+  </div>
+</div>
+
+</body>
+</html>
